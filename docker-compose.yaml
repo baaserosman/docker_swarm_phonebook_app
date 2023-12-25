@@ -14,7 +14,7 @@ services:
     networks:
       - phonebook_net
   app-server:
-    image: baaserosman/phonebook
+    image: phonebook_image
     deploy:
       replicas: 3
       update_config:
