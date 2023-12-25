@@ -7,14 +7,14 @@ services:
       MYSQL_ROOT_PASSWORD: P123456p
       MYSQL_DATABASE: phonebook_db
       MYSQL_USER: admin
-      MYSQL_PASSWORD: Clarusway_1
+      MYSQL_PASSWORD: admin_1
     configs:
       - source: table
         target: /docker-entrypoint-initdb.d/init.sql
     networks:
-      - clarusnet
+      - phonebook_net
   app-server:
-    image: phonebook_image
+    image: baaserosman/phonebook
     deploy:
       replicas: 3
       update_config:
@@ -24,10 +24,10 @@ services:
     ports:
       - "80:80"
     networks:
-      - clarusnet
+      - phonebook_net
 
 networks:
-  clarusnet:
+  phonebook_net:
 
 configs:
   table:
